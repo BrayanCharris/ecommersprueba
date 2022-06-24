@@ -189,4 +189,5 @@ function select() {
     } else {
         cargardatos();
     }
+    document.getElementById("buscar").value="";
 }
