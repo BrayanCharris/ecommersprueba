@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JSON DEV - Productos detalles</title>
+    <title>ECOMMERCE WEBSITE</title>
 
     <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -26,7 +26,7 @@
       <div class="nav__center container">
 				<a href="./index.html">
         <div class="nav__logo">
-          <h1>JSON <span>DEV</span></h1>
+			<h1>Tienda <span>Online</span></h1>
 				</div>
 			</a>
         <ul class="nav__list">
@@ -43,10 +43,10 @@
 
 		<main class="container detalles" id="detalles">
 			<article class="detalle-grid">
-				<img src="https://cdn4.chrono24.com/images/topmodels/2875-7wlcl6ogfoc0qxg22ox6up9m-Original.png?auto=compress&amp;h=305" alt="" class="img-fluid">
+				<img src="" alt="" class="img-fluid" id="imagen">
 				<div class="detalles-content">
-					<h3>Relojes Originales</h3>
-					<div class="rating">
+					<h3 id="nombreproducto">Relojes Originales</h3>
+					<div class="rating" id="calificacion">
 						<span>
 							<i class="bx bxs-star"></i>
 						</span>
@@ -63,12 +63,12 @@
 							<i class="bx bx-star"></i>
 						</span>
 					</div>
-						<p class="price"><b>Precio: </b> $55.00</p>
+						<p class="price"><b>Precio: </b> $ <span id="precio">55</span>.00</p>
 						<p class="description">
-							<b>Descripcion: </b> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ad ex sint expedita perspiciatis odit eligendi! Et quia ex aperiam dolorum sunt omnis maiores. Repudiandae delectus iste exercitationem vel?</span>
+							<b>Descripcion: </b> <span id="descripcion1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ad ex sint expedita perspiciatis odit eligendi! Et quia ex aperiam dolorum sunt omnis maiores. Repudiandae delectus iste exercitationem vel?</span>
 						</p>
 						<p class="description">
-							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptates consequuntur in assumenda odit hic, aut cupiditate dolorem aspernatur! Quibusdam iusto magnam vero maxime quisquam voluptatibus minima aliquam molestias, iure ratione commodi, reiciendis quasi.</span>
+							<span id="descripcion2"></span>
 						</p>
 
 						<div class="bottom">
@@ -81,6 +81,6 @@
 		</main>
     
 		<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-    <script src="./js/scripts.js"></script>
+	    <script src="./js/script-detalles.js"></script>
   </body>
 </html>
