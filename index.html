@@ -37,12 +37,12 @@
    <section class="filter">
     <div class="grid">
       <div class="div">
-        <label style="cursor: pointer;" onclick=""><span><i class="bx bx-search"></i></span></label>
+        <label style="cursor: pointer;" onclick="buscar()"><span><i class="bx bx-search" style="font-size: 15px;"></i></span></label>
         <input type="text" id="buscar" placeholder="Buscar relojes...">
       </div>
       <div class="category">
-        <select id="category">
-          <option value="">Marcas</option>
+        <select id="category" onchange="select()">
+          <option value="select">Marcas</option>
           <option value="rolex">Rolex</option>
           <option value="omega">Omega</option>
           <option value="audemars">Audemars</option>
