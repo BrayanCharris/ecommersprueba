@@ -35,3 +35,16 @@ fetch("datos/productos.json")
             document.getElementById("descripcion1").innerHTML=productoMostrar.description1;
             document.getElementById("descripcion2").innerHTML=productoMostrar.description2;
         }) //Mostramos dicha informacion
+
+
+
+
+        function mostrar_carrito() {
+            document.getElementById("carrito__overlay").classList.add("show");
+            document.getElementById("carrito").classList.add("show");
+        }
+        
+        function ocultar_carrito() {
+            document.getElementById("carrito__overlay").classList.remove("show");
+            document.getElementById("carrito").classList.remove("show");
+        }

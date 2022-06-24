@@ -17,6 +17,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
     />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
@@ -33,7 +34,7 @@
           <span>
             <i class="bx bxs-watch"></i>
           </span>
-          <div class="carrito__icon">
+          <div class="carrito__icon" onclick="mostrar_carrito()">
             <i class="bx bx-cart"></i>
             <span class="item__total">0</span>
           </div>
@@ -79,6 +80,45 @@
 				</div>
 			</article>
 		</main>
+
+		<section class="carrito__overlay" id="carrito__overlay">
+			<div class="carrito" id="carrito">
+			  <span class="close__carrito" onclick="ocultar_carrito()">
+				<i class="bx bx-x"></i>
+			  </span>
+			  <h1>Su Carrito</h1>
+	  
+			  <div class="carrito__center">
+	  
+				<div class="carrito__item">
+	  
+				  <img src="https://cdn4.chrono24.com/images/topmodels/2875-7wlcl6ogfoc0qxg22ox6up9m-Original.png?auto=compress&amp;h=305" alt="reloj">
+				  <div>
+					<h3>Relojes Originales </h3>
+					<p class="price">$122</p>
+				  </div>
+				  <div>
+					<span>
+					  <i class="bx bxs-up-arrow"></i>
+					</span>
+					<p>1</p>
+					<span>
+					  <i class="bx bxs-down-arrow"></i>
+					</span>
+				  </div>
+				  <span class="remove__item">
+					<i class="bx bx-trash"></i>
+				  </span>           
+				</div>
+				<div class="carrito__footer">
+					<h3>Total: $ <span class="carrito_total">0</span></h3>
+					<button class="clear_carrito btn">
+						remover carrito
+					</button>
+				</div>
+			  </div>
+			</div>
+		  </section>
     
 		<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
 	    <script src="./js/script-detalles.js"></script>

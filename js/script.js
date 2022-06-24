@@ -63,7 +63,8 @@ function busquedadatos(valor) {
 
             productos.forEach(producto => {
                 var nombre= producto.title;
-                if (nombre.slice(0,valor.length)==valor) {
+                nombre= nombre.toLowerCase();
+                if (nombre.slice(0,valor.length)==valor.toLowerCase()) {
                     var template=``;
                     template+=`
                         <div class="producto">
@@ -190,4 +191,15 @@ function select() {
         cargardatos();
     }
     document.getElementById("buscar").value="";
+}
+
+
+function mostrar_carrito() {
+    document.getElementById("carrito__overlay").classList.add("show");
+    document.getElementById("carrito").classList.add("show");
+}
+
+function ocultar_carrito() {
+    document.getElementById("carrito__overlay").classList.remove("show");
+    document.getElementById("carrito").classList.remove("show");
 }
