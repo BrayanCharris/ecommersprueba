@@ -1,8 +1,8 @@
-const url=window.location.href
+const url=window.location.href/* Obtener la url de la pagina */
 
-var idproducto=url.split("=")[1];
+var idproducto=url.split("=")[1];/* Obtener el valor del POST */
 
-
+/* Consultar y buscar producto seleccionado para la vista */
 fetch("datos/productos.json")
         .then(respuesta=>respuesta.json()) //Indicamos el formato en que se desea obtner la informacion
         .then(productos=> {

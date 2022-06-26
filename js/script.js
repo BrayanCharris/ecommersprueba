@@ -52,7 +52,7 @@ function cargardatos() {
                     </div>
                     <div class="bottom">
                     <div class="btn__group">
-                        <a href="#" class="btn addToCart" onclick="añadir_carrito('${producto.id}','${producto.title}','${producto.price}')">${carrito[producto.id] ? "En el carrito" : "Añadir carrito"}</a>
+                        <a href="#" class="btn addToCart" onclick="añadir_carrito('${producto.id}','${producto.title}','${producto.price}','${producto.image}')">${carrito[producto.id] ? "En el carrito" : "Añadir carrito"}</a>
                         <a href="#" class="btn view" onclick="abrirpopup('producto-detalles.html?id=${producto.id}',1500,800)">Vista</a>
                     </div>
                     </div>
@@ -112,7 +112,7 @@ function busquedadatos(valor) {
                         </div>
                         <div class="bottom">
                         <div class="btn__group">
-                            <a href="#" class="btn addToCart">Añadir carrito</a>
+                        <a href="#" class="btn addToCart" onclick="añadir_carrito('${producto.id}','${producto.title}','${producto.price}','${producto.image}')">${carrito[producto.id] ? "En el carrito" : "Añadir carrito"}</a>
                             <a href="#" class="btn view" onclick="abrirpopup('producto-detalles.html?id=${producto.id}',1500,800)">Vista</a>
                         </div>
                         </div>
@@ -172,7 +172,7 @@ function busquedadatoscategoria(categoriafiltro) {
                         </div>
                         <div class="bottom">
                         <div class="btn__group">
-                            <a href="#" class="btn addToCart">Añadir carrito</a>
+                            <a href="#" class="btn addToCart" onclick="añadir_carrito('${producto.id}','${producto.title}','${producto.price}','${producto.image}')">${carrito[producto.id] ? "En el carrito" : "Añadir carrito"}</a>
                             <a href="#" class="btn view" onclick="abrirpopup('producto-detalles.html?id=${producto.id}',1500,800)">Vista</a>
                         </div>
                         </div>
@@ -191,6 +191,7 @@ function busquedadatoscategoria(categoriafiltro) {
 function buscar() {
     var busqueda=document.getElementById("buscar").value;
     busquedadatos(busqueda);
+    document.getElementById("category").value="select"
     /* busqueda.length */
     /* texto.slice(0,4) */
 }
@@ -198,7 +199,7 @@ function buscar() {
 /* Buscar productos SELECT */
 var selection = document.getElementById("category");
 function select() {
-    var valor=selection.options[selection.selectedIndex].value;
+    var valor=selection.value;
     if (valor!="select") {
         busquedadatoscategoria(valor);
     } else {
@@ -206,25 +207,3 @@ function select() {
     }
     document.getElementById("buscar").value="";
 }
-
-
-/* Agregar al carrito */
-function añadir_carrito(id,nombre,precio) {
-    carrito[id]={id,nombre,precio};
-    console.log(carrito[2]);
-    cargardatos();
-}
-
-
-/* Mostrar modaol de carrito */
-function mostrar_carrito() {
-    document.getElementById("carrito__overlay").classList.add("show");
-    document.getElementById("carrito").classList.add("show");
-}
-
-/* Oculatamos modaol de carrito */
-function ocultar_carrito() {
-    document.getElementById("carrito__overlay").classList.remove("show");
-    document.getElementById("carrito").classList.remove("show");
-}
-
