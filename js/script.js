@@ -1,3 +1,15 @@
+/* Variables locales */
+var carrito=[];
+
+/* Funcion para poder abir ventana */
+function abrirpopup(url,ancho,alto){
+	
+	//Ajustar horizontalmente
+	var x=(screen.width/2)-(ancho/2);
+	//Ajustar verticalmente
+	var y=(screen.height/2)-(alto/2);
+	window.open(url, 'popup', 'width=' + ancho + ', height=' + alto + ', left=' + x + ', top=' + y +'');
+}
 /* Obtener productos de fichero JSON*/
 function cargardatos() {
     fetch("datos/productos.json")
@@ -40,8 +52,8 @@ function cargardatos() {
                     </div>
                     <div class="bottom">
                     <div class="btn__group">
-                        <a href="#" class="btn addToCart">Añadir carrito</a>
-                        <a href="producto-detalles.html?id=${producto.id}" class="btn view">Vista</a>
+                        <a href="#" class="btn addToCart" onclick="añadir_carrito('${producto.id}','${producto.title}','${producto.price}')">${carrito[producto.id] ? "En el carrito" : "Añadir carrito"}</a>
+                        <a href="#" class="btn view" onclick="abrirpopup('producto-detalles.html?id=${producto.id}',1500,800)">Vista</a>
                     </div>
                     </div>
                 </div>
@@ -101,7 +113,7 @@ function busquedadatos(valor) {
                         <div class="bottom">
                         <div class="btn__group">
                             <a href="#" class="btn addToCart">Añadir carrito</a>
-                            <a href="producto-detalles.html?id=${producto.id}" class="btn view">Vista</a>
+                            <a href="#" class="btn view" onclick="abrirpopup('producto-detalles.html?id=${producto.id}',1500,800)">Vista</a>
                         </div>
                         </div>
                     </div>
@@ -161,7 +173,7 @@ function busquedadatoscategoria(categoriafiltro) {
                         <div class="bottom">
                         <div class="btn__group">
                             <a href="#" class="btn addToCart">Añadir carrito</a>
-                            <a href="producto-detalles.html?id=${producto.id}" class="btn view">Vista</a>
+                            <a href="#" class="btn view" onclick="abrirpopup('producto-detalles.html?id=${producto.id}',1500,800)">Vista</a>
                         </div>
                         </div>
                     </div>
@@ -175,6 +187,7 @@ function busquedadatoscategoria(categoriafiltro) {
         }) //Mostramos dicha informacion
 }
 
+/* Buscar productos INPUT */
 function buscar() {
     var busqueda=document.getElementById("buscar").value;
     busquedadatos(busqueda);
@@ -182,6 +195,7 @@ function buscar() {
     /* texto.slice(0,4) */
 }
 
+/* Buscar productos SELECT */
 var selection = document.getElementById("category");
 function select() {
     var valor=selection.options[selection.selectedIndex].value;
@@ -194,12 +208,23 @@ function select() {
 }
 
 
+/* Agregar al carrito */
+function añadir_carrito(id,nombre,precio) {
+    carrito[id]={id,nombre,precio};
+    console.log(carrito[2]);
+    cargardatos();
+}
+
+
+/* Mostrar modaol de carrito */
 function mostrar_carrito() {
     document.getElementById("carrito__overlay").classList.add("show");
     document.getElementById("carrito").classList.add("show");
 }
 
+/* Oculatamos modaol de carrito */
 function ocultar_carrito() {
     document.getElementById("carrito__overlay").classList.remove("show");
     document.getElementById("carrito").classList.remove("show");
 }
+
