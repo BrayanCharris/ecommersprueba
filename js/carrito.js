@@ -4,7 +4,7 @@ function añadir_carrito(id,nombre,precio,imagen) {
     if (carrito[id]) {
         alert("Ya se encuentra agregado en el carrito")
     }else{
-        carrito[id]={id,nombre,precio,imagen};
+        carrito[id]={id,nombre,precio,imagen,cantidad:1};
         var contador=0;
         carrito.forEach(element => {
             contador++;/* Contar el numero de elemntos agregados al carrito */
@@ -49,21 +49,46 @@ function mostrar_productos_carrito() {
                 </div>
                 <div>
                 <span>
-                    <i class="bx bxs-up-arrow"></i>
+                    <i class="bx bxs-up-arrow" onclick="aumentarcantidad(${producto.id})"></i>
                 </span>
-                <p>1</p>
+                <p id="cantp${producto.id}">${producto.cantidad}</p>
                 <span>
-                    <i class="bx bxs-down-arrow"></i>
+                    <i class="bx bxs-down-arrow" onclick="reducircantidad(${producto.id})"></i>
                 </span>
                 </div>
                 <span class="remove__item">
-                <i class="bx bx-trash"></i>
+                <i class="bx bx-trash" onclick="eliminarproducto(${producto.id})"></i>
                 </span>           
             </div>
         `;
-        precioTotal+=parseFloat(producto.precio);
+        precioTotal+=(parseFloat(producto.precio)*parseInt(producto.cantidad));
     });
 
     document.querySelector(".carrito_total").innerHTML=precioTotal;
     document.getElementById("productoscarrito").innerHTML=template;
+}
+
+/* Opciones del modal de carrito */
+function eliminarproducto(id) {
+    carrito.splice(id, 1);
+    mostrar_productos_carrito();
+}
+function aumentarcantidad(id) {
+    carrito[id].cantidad+=1;
+    document.querySelector("#cantp"+id).innerHTML=carrito[id].cantidad;
+    mostrar_productos_carrito();
+}
+
+function reducircantidad(id) {
+    cantidadDec=carrito[id].cantidad-1;
+    if (cantidadDec>0) {
+        carrito[id].cantidad=cantidadDec;
+        document.querySelector("#cantp"+id).innerHTML=cantidadDec;
+        mostrar_productos_carrito();
+    }
+}
+
+function eliminartodoslosproductos() {
+    carrito.splice(0);
+    mostrar_productos_carrito();
 }
